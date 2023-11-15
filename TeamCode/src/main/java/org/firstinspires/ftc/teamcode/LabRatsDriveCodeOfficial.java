@@ -110,9 +110,9 @@ public class LabRatsDriveCodeOfficial extends LinearOpMode {
         rightBackDrive.setDirection(DcMotor.Direction.FORWARD);
         ArmRotator.setDirection(DcMotorSimple.Direction.FORWARD);
         ArmExtender.setDirection(DcMotorSimple.Direction.REVERSE);
-        ClawOpen.setPosition(0);
-        ClawR.setPosition(0);
-        ClawL.setPosition(0);
+        ClawOpen.setPosition(-2);
+        ClawR.setPosition(5);
+        ClawL.setPosition(5);
 
 
 
@@ -175,18 +175,15 @@ public class LabRatsDriveCodeOfficial extends LinearOpMode {
                 ArmRotator.setPower(0);
             }
             if (gamepad2.a) {
-                ClawOpen.setPosition(1.0);//.8
+                ClawOpen.setPosition(5);//.8
             
             }
             if (gamepad2.b) {
-                ClawR.setPosition(1.0);//.8
+                ClawOpen.setPosition(-3);//.8
 
             }
 
-            if (gamepad2.b) {
-                ClawL.setPosition(1.0);//.8
 
-            }
             // This is test code:
             //
             // Uncomment the following code to test your motor directions.
