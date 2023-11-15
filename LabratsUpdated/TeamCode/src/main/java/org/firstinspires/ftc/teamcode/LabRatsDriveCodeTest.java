@@ -64,22 +64,20 @@ import com.qualcomm.robotcore.util.ElapsedTime;
  * Remove or comment out the @Disabled line to add this opmode to the Driver Station OpMode list
  */
 
-@TeleOp(name="Labrats Drive Code Official", group="Linear Opmode")
+@TeleOp(name="Labrats Drive Code Test", group="Linear Opmode")
 //@Disabled
-public class LabRatsDriveCodeOfficial extends LinearOpMode {
+public class LabRatsDriveCodeTest extends LinearOpMode {
 
     // Declare OpMode members for each of the 4 motors.
-    //label hub and port next to code
     private final ElapsedTime runtime = new ElapsedTime();
-    private DcMotor leftFrontDrive = null; //port = mainhub:
-    private DcMotor leftBackDrive = null; //port = mainhub:
-    private DcMotor rightFrontDrive = null; //port = mainhub:
-    private DcMotor rightBackDrive = null; //port = mainhub:
-    private DcMotor ArmRotator = null; //port = exhub:
-    private DcMotor ArmExtender = null; //port = exhub
-    private Servo ClawOpen = null; //port =
-    private Servo ClawR = null; //port =
-    private Servo ClawL = null; //port =
+    private DcMotor leftFrontDrive = null;
+    private DcMotor leftBackDrive = null;
+    private DcMotor rightFrontDrive = null;
+    private DcMotor rightBackDrive = null;
+    private DcMotor ArmRotator = null;
+    private DcMotor ArmExtender = null;
+    private Servo ClawR = null;
+    private Servo ClawT = null;
 
     @Override
     public void runOpMode() {
@@ -92,9 +90,8 @@ public class LabRatsDriveCodeOfficial extends LinearOpMode {
         rightBackDrive = hardwareMap.get(DcMotor.class, "right_back_drive");
         ArmRotator = hardwareMap.get(DcMotor.class, "extender");
         ArmExtender = hardwareMap.get(DcMotor.class, "rotator");
-        ClawOpen = hardwareMap.get(Servo.class, "Clawopen");
-        ClawR = hardwareMap.get(Servo.class, "Clawright");
-        ClawL = hardwareMap.get(Servo.class, "Clawleft");
+        ClawR = hardwareMap.get(Servo.class, "Clawr");
+        ClawT = hardwareMap.get(Servo.class, "Clawt");
         // ########################################################################################
         // !!!            IMPORTANT Drive Information. Test your motor directions.            !!!!!
         // ########################################################################################
@@ -111,10 +108,8 @@ public class LabRatsDriveCodeOfficial extends LinearOpMode {
         rightBackDrive.setDirection(DcMotor.Direction.FORWARD);
         ArmRotator.setDirection(DcMotorSimple.Direction.FORWARD);
         ArmExtender.setDirection(DcMotorSimple.Direction.REVERSE);
-        ClawOpen.setPosition(-2);
-        ClawR.setPosition(5);
-        ClawL.setPosition(5);
-
+        ClawR.setPosition(1.0);
+        ClawT.setPosition(1.0);
 
 
         // Wait for the game to start (driver presses PLAY)
@@ -176,14 +171,13 @@ public class LabRatsDriveCodeOfficial extends LinearOpMode {
                 ArmRotator.setPower(0);
             }
             if (gamepad2.a) {
-                ClawOpen.setPosition(5);//.8
+                ClawR.setPosition(.3);//.8
             
             }
             if (gamepad2.b) {
-                ClawOpen.setPosition(-3);//.8
+                ClawT.setPosition(1.0);//.8
 
             }
-
 
             // This is test code:
             //
